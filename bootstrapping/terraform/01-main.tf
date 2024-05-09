@@ -22,10 +22,14 @@ provider "azurerm" {
     }
 }
 
+provider "github" {
+    owner    = "${var.github_org_name}"
+}
+
 locals {
     subject = "repo:${var.github_org_name}/${var.github_repo_name}:${var.entity_type}:${var.entity_name}"
 }
 
+data "azurerm_client_config" "current" {}
 data "azuread_client_config" "current" {}
-
 data "azuread_application_published_app_ids" "well_known" {}
