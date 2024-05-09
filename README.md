@@ -11,7 +11,7 @@ Each of these will trigger/present themselves as a different "entity type" and h
 
 
 > [!NOTE]
-Currently this demo is set to only work with GitHub Action Environments.  As such the default Environment name will be "demo" unless otherwise specified via tfvars
+Currently this demo is set to only work with GitHub Repo Environments.  As such your federated identity context will always be scoped/presented as from ```repo:{$var.github_org_name}/{$var.github_repo_name}:environment:{$var.entity_name}```.  The default Environment ```entity_name``` will be "```demo```" unless otherwise specified via env vars or a *.tfvars file.
 
 ## Scripted Bootstrapping with Terraform
 
@@ -67,8 +67,12 @@ See the example [GitHub Actions Workflow](.github/workflows/gh-workload-identity
 ### Save Client (App) and Tenant IDs as GitHub Actions Environment Secrets
 You must save the Client (App) ID and the Microsoft Entra (Artist formerly known as Azure Active Directory) Tenant ID into GitHub Secrets for the specified and appropriate level/entity type (e.g. [Environment, Branch, Pull Request, Tag]) as specified in ```"Configure Federated Credential"``` above.
 
+<<<<<<< HEAD
 ### Access GitHub Repo Environment Secrets
 ![Access GitHub Repo Environment Secrets](img/access-gh-repo-environment-secrets.png)
 
 ### Create GitHub Repo Environment Secrets
 ![Create GitHub Repo Environment Secrets](img/create-gh-repo-environment-secrets.png)
+=======
+You must save the Client (App) ID and the Microsoft Entra (Artist formerly known as Azure Active Directory) Tenant ID into GitHub Secrets for the specified and appropriate level/entity type (e.g. [Environment, Branch, Pull Request, Tag]) as specified in ```"Configure Federated Credential"``` above.
+>>>>>>> 363066cf54974e673ac2e99b66674a7aef89e650
