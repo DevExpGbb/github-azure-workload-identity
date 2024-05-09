@@ -6,7 +6,7 @@ Optional:
 Required:
 - Authenticate to Azure CLI as your Azure Admin (must have AAD/Entra Admin and Subscription Administrator Roles)
 - Authenticate to GitHub as Admin user (Must be able to create secrets on Repo/Actions)
-    - If you are using GH Codespaces you will need to ```unset GITHUB_TOKEN``` then run another ```gh auth login``` as the default PAT token injected by Codespaces does not have the sufficient permissions
+    - If you are using GH Codespaces you will need to ```unset GITHUB_TOKEN``` then run another ```gh auth login``` as the default PAT token injected by Codespaces does not have the sufficient permissions (Token scope does not include Repo:Environment:Secrets at all - confirmed)
 
 Notes:
 - Artifacts created (e.g. terraform state) do not/should not need to be persisted (only used to create SPN, Create Federation and store App/Client and Tenant ID as a Action Environment Secrets to be consumed by specified Action)
