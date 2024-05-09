@@ -11,7 +11,7 @@ Each of these will trigger/present themselves as a different "entity type" and h
 
 
 > [!NOTE]
-Currently this demo is set to only work with GitHub Action Environments.  As such the default Environment name will be "demo" unless otherwise specified via tfvars
+Currently this demo is set to only work with GitHub Repo Environments.  As such your federated identity context will always be scoped/presented as from ```repo:{Organization}/{Repository}:environment:{$var.entity_name}```.  The default Environment ```entity_name``` will be "```demo```" unless otherwise specified via env vars or a *.tfvars file.
 
 ## Scripted Bootstrapping with Terraform
 
