@@ -1,8 +1,6 @@
 # GitHub to Azure OIDC Workload Identity
 Testing GitHub to Azure OIDC Workload Identity.
 
-
-
 ## Plan out how you will use the federated identity
 - Will you be using this identity with:
     - GitHub Repo Environments?
@@ -10,6 +8,10 @@ Testing GitHub to Azure OIDC Workload Identity.
     - Tags?
     - Branches?
 Each of these will trigger/present themselves as a different "entity type" and hence the identity tied to the federated workload identity will be scoped accoridngly.
+
+
+> [!NOTE]
+Currently this demo is set to only work with GitHub Action Environments.  As such the default Environment name will be "demo" unless otherwise specified via tfvars
 
 ## Scripted Bootstrapping with Terraform
 
