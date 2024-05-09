@@ -1,8 +1,43 @@
 # GitHub to Azure OIDC Workload Identity
-Testing GitHub to Azure OIDC Workload Identity
+Testing GitHub to Azure OIDC Workload Identity.
+
+
 
 ## Plan out how you will use the federated identity
-- Will you be using this
+- Will you be using this identity with:
+    - GitHub Repo Environments?
+    - Pull Requests?
+    - Tags?
+    - Branches?
+Each of these will trigger/present themselves as a different "entity type" and hence the identity tied to the federated workload identity will be scoped accoridngly.
+
+## Scripted Bootstrapping with Terraform
+
+```bash
+#!/bin/bash
+
+# log into Azure using your personal user account with admin rights
+az login
+
+# Needed if running in GH Codespaces as the token scope does not allow you to write GH Environment Secrets
+# safe to unset even if you're not in codespaces
+unset GITHUB_TOKEN
+
+# log into GitHub
+gh auth login
+
+# Move to the terraform dir
+cd bootstrapping/terraform/
+
+# Terraform song and dance
+terraform init
+terraform plan -out tfplan
+terraform apply tfplan
+```
+
+## Using this in GitHub Actions
+
+See the example [GitHub Actions Workflow](.github/workflows/gh-workload-identity-demo.yaml)
 
 ## Manual Bootstrapping Tasks:
 
@@ -30,5 +65,3 @@ Testing GitHub to Azure OIDC Workload Identity
 ### Save Client (App) and Tenant IDs as GitHub Actions Environment Secrets
 
 You must save the Client (App) ID and the Microsoft Entra (Artist formerly known as Azure Active Directory) Tenant ID into GitHub Secrets for the specified and appropriate level/entity type (e.g. [Environment, Branch, Pull Request, Tag]) as specified in ```"Configure Federated Credential"``` above.
-
-## Using this in GitHub Actions
