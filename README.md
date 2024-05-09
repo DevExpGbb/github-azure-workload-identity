@@ -65,5 +65,10 @@ See the example [GitHub Actions Workflow](.github/workflows/gh-workload-identity
 ![Note Client and Tenant IDs](img/note-client-id-and-tenant-id.png)
 
 ### Save Client (App) and Tenant IDs as GitHub Actions Environment Secrets
-
 You must save the Client (App) ID and the Microsoft Entra (Artist formerly known as Azure Active Directory) Tenant ID into GitHub Secrets for the specified and appropriate level/entity type (e.g. [Environment, Branch, Pull Request, Tag]) as specified in ```"Configure Federated Credential"``` above.
+
+### Access GitHub Repo Environment Secrets
+![Access GitHub Repo Environment Secrets](img/access-gh-repo-environment-secrets.png)
+
+### Create GitHub Repo Environment Secrets
+![Create GitHub Repo Environment Secrets](img/create-gh-repo-environment-secrets.png)
